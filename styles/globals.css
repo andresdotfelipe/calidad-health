@@ -1,0 +1,105 @@
+:root {
+  --default-border: 2px solid #e3e3e3;
+  --default-border-radius: 20px;
+}
+
+html,
+body {  
+  padding: 0;
+  margin: 0;
+  font-family: system-ui;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+} */
+
+.container {
+  margin-top: 42px;
+}
+
+.title {
+  margin-bottom: 40px;
+}
+
+.form {
+  align-items: center;
+  background-color: #fbfbfb;
+  border-radius: var(--default-border-radius);
+  border: var(--default-border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  padding: 30px;
+}
+
+.field {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.field label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.defaultInput {
+  border-radius: 8px;
+  border: 2px solid #b8c0be; /* OK field color: #188664 */
+  font-size: 20px;
+  padding: 7px;
+  width: 100%;
+}
+
+.inputError {
+  border: 2px solid #f89898; /* OK field color: #188664 */
+}
+
+.errorMessage {
+  color: #a60909;
+  font-size: 18px;
+  margin-bottom: 7px;
+  min-height: 30px;
+}
+
+.errorMessageNotVisible {
+  margin-bottom: 7px;  
+  min-height: 30px;
+}
+
+.form button[type="submit"] {
+  background-color: #188664;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 17px 0;
+  width: 100%;
+}
+
+.react-datepicker__time-list-item--disabled {
+  display: none;
+}

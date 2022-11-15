@@ -1,0 +1,13 @@
+.nav {
+  align-items: center;
+  background: linear-gradient(45deg, #4e94a6, #399e67);
+  color: #fff;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+}
+
+.brand {
+  font-size: 30px;
+  font-weight: 700;
+}
