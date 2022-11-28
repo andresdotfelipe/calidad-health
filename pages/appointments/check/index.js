@@ -34,36 +34,34 @@ export default function Check() {
 
   return (
     <Layout title="Check medical appointments | CALIDAD Health">
-      <section className={"container"}>
-        <h1 className={"title"}>Check your medical appointments</h1>
-        <form onSubmit={handleSubmitCheck} className={"form"}>
-          <div className={"field"}>
-            <label htmlFor="idNumber">ID number</label>
-            <input
-              type="text"
-              id="idNumber"
-              name="idNumber"
-              value={checkForm.idNumber}
-              className={
-                errorMessages.idNumber !== ""
-                  ? `defaultInput inputError`
-                  : `defaultInput`
-              }
-              onChange={onChange}
-            />
-            <span
-              className={
-                errorMessages.idNumber !== ""
-                  ? `errorMessage`
-                  : `errorMessageNotVisible`
-              }
-            >
-              {errorMessages.idNumber}
-            </span>
-          </div>          
-          <button type="submit">Next</button>
-        </form>
-      </section>
+      <h1 className={"title"}>Check your medical appointments</h1>
+      <form onSubmit={handleSubmitCheck} className={"form"}>
+        <div className={"field"}>
+          <label htmlFor="idNumber">ID number</label>
+          <input
+            type="text"
+            id="idNumber"
+            name="idNumber"
+            value={checkForm.idNumber}
+            className={
+              errorMessages.idNumber !== ""
+                ? `defaultInput inputError`
+                : `defaultInput`
+            }
+            onChange={onChange}
+          />
+          <span
+            className={
+              errorMessages.idNumber !== ""
+                ? `errorMessage`
+                : `errorMessageNotVisible`
+            }
+          >
+            {errorMessages.idNumber}
+          </span>
+        </div>
+        <button type="submit">Next</button>
+      </form>
     </Layout>
   );
 }

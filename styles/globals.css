@@ -29,11 +29,8 @@ a {
   }
 } */
 
-.container {
-  margin-top: 42px;
-}
-
 .title {
+  font-size: 24px;
   margin-bottom: 40px;
 }
 

@@ -1,16 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Layout from "../../../components/Layout";
+import ConfirmRequest from "../../../components/ConfirmRequest";
 import { validateInput } from "../../../utils/validateForm";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import {
-  getDay,
-  lastDayOfMonth,
-  getMonth,
-  getYear,
-  setHours,
-  setMinutes,
-} from "date-fns";
 
 const requestFormInitialState = {
   idNumber: "",
@@ -59,7 +51,7 @@ export default function Request() {
           type={requestForm.appointmentType}
         />
       ) : (
-        <section className={"container"}>
+        <>
           <h1 className={"title"}>Request your medical appointment</h1>
           <form onSubmit={handleSubmitRequest} className={"form"}>
             <div className={"field"}>
@@ -122,55 +114,8 @@ export default function Request() {
             </div>
             <button type="submit">Next</button>
           </form>
-        </section>
+        </>
       )}
     </Layout>
   );
 }
-
-const ConfirmRequest = ({ idNumber, type }) => {
-  const [medics, setMedics] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(
-    setHours(setMinutes(new Date(), 0), 7)
-  );
-
-  useEffect(() => {
-    fetch(
-      "/api/appointments/request?" +
-        new URLSearchParams({
-          type,
-        })
-    )
-      .then((res) => res.json())
-      .then((data) => setMedics(data.medics));
-  }, [type]);
-
-  const isWeekday = (date) => {
-    const day = getDay(date);
-    return day !== 0 && day !== 6;
-  };
-
-  return (
-    <>
-      {medics.map((medic) => (
-        <div key={medic._id}>
-          <p>{medic.fullName}</p>
-        </div>
-      ))}
-      <DatePicker
-        selected={selectedDate}
-        onChange={(date) => setSelectedDate(date)}
-        inline={true}
-        filterDate={isWeekday}
-        minDate={new Date()}
-        maxDate={lastDayOfMonth(
-          new Date(getYear(new Date()), getMonth(new Date()) + 1)
-        )}
-        showTimeSelect={true}
-        minTime={setHours(setMinutes(new Date(), 0), 7)}
-        maxTime={setHours(setMinutes(new Date(), 0), 19)}
-        excludeTimes={[setHours(setMinutes(new Date(), 0), 17)]}
-      />
-    </>
-  );
-};

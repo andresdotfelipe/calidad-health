@@ -4,8 +4,7 @@
   flex-direction: column;
   flex: 1;
   justify-content: center;
-  gap: 70px;
-  min-height: calc(100vh - 80px);
+  gap: 70px;  
 }
 
 .request, .check {
