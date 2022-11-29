@@ -8,7 +8,6 @@ import {
   setHours,
   setMinutes,
 } from "date-fns";
-import styles from "../../styles/ConfirmRequest.module.css";
 
 export default function ConfirmRequest({ idNumber, type }) {
   const [medics, setMedics] = useState([]);
@@ -17,15 +16,17 @@ export default function ConfirmRequest({ idNumber, type }) {
   );
 
   useEffect(() => {
+    selectedDate.setSeconds(0);
     fetch(
       "/api/appointments/request?" +
         new URLSearchParams({
           type,
+          selectedDate,
         })
     )
       .then((res) => res.json())
       .then((data) => setMedics(data.medics));
-  }, [type]);
+  }, [type, selectedDate]);
 
   const isWeekday = (date) => {
     const day = getDay(date);

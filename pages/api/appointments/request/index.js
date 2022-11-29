@@ -9,9 +9,12 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const { idNumber, type } = req.query;
-        console.log(idNumber, type)
-        const medics = await Medic.find({ specialization: type });
+        const { idNumber, type, selectedDate } = req.query;
+        console.log(idNumber, type, selectedDate);
+        const result = await Medic.find({ specialization: type });
+        const medics = result.filter((result) => {
+          result.appointments.date !== selectedDate;
+        });
         res.status(200).json({ success: true, medics });
       } catch (error) {
         res.status(400).json({ success: false, error: error.message });
