@@ -8,6 +8,7 @@ import {
   setHours,
   setMinutes,
 } from "date-fns";
+import styles from "../../styles/ConfirmRequest.module.css";
 
 export default function ConfirmRequest({ idNumber, type }) {
   const [medics, setMedics] = useState([]);
@@ -48,12 +49,16 @@ export default function ConfirmRequest({ idNumber, type }) {
         minTime={setHours(setMinutes(new Date(), 0), 7)}
         maxTime={setHours(setMinutes(new Date(), 0), 19)}
         excludeTimes={[setHours(setMinutes(new Date(), 0), 17)]}
+        className={styles.datepicker}
       />
-      {medics.map((medic) => (
-        <div key={medic._id}>
-          <p>{medic.fullName}</p>
-        </div>
-      ))}
+      <div className={styles.medicsContainer}>
+        <h2 className={styles.medicsContainerTitle}>Select a medic</h2>
+        {medics.map((medic) => (
+          <button key={medic._id} className={styles.medicFullName}>
+            {medic.fullName}
+          </button>
+        ))}
+      </div>
     </>
   );
 }

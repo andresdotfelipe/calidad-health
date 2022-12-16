@@ -13,7 +13,7 @@ export default async function handler(req, res) {
         console.log(idNumber, type, selectedDate);
         const result = await Medic.find({ specialization: type });
         const medics = result.filter((result) => {
-          result.appointments.date !== selectedDate;
+          return result.appointments.date !== selectedDate;
         });
         res.status(200).json({ success: true, medics });
       } catch (error) {
