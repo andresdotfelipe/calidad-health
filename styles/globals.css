@@ -97,6 +97,11 @@ a {
   width: 100%;
 }
 
+.react-datepicker {
+  border-radius: var(--default-border-radius);
+  overflow: hidden;
+}
+
 .react-datepicker__time-list-item--disabled {
   display: none;
 }

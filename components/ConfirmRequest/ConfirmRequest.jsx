@@ -49,7 +49,7 @@ export default function ConfirmRequest({ idNumber, type }) {
         minTime={setHours(setMinutes(new Date(), 0), 7)}
         maxTime={setHours(setMinutes(new Date(), 0), 19)}
         excludeTimes={[setHours(setMinutes(new Date(), 0), 17)]}
-        className={styles.datepicker}
+        className="react-datepicker"
       />
       <div className={styles.medicsContainer}>
         <h2 className={styles.medicsContainerTitle}>Select a medic</h2>

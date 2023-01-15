@@ -2,7 +2,6 @@ import { useState } from "react";
 import Layout from "../../../components/Layout";
 import ConfirmRequest from "../../../components/ConfirmRequest";
 import { validateInput } from "../../../utils/validateForm";
-import "react-datepicker/dist/react-datepicker.css";
 
 const requestFormInitialState = {
   idNumber: "",
